@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <ul>
+            <li>
+                <label for="username">Usuario: </label>
+                <input type="text" id="username" name="username">
+            </li>
+            <li>
+                <label for="first_name">Nombre: </label>
+                <input type="text" id="first_name" name="first_name">
+            </li>
+            <li>
+                <label for="last_name">Apellidos: </label>
+                <input type="text" id="last_name" name="last_name">
+            </li>
+            <li>
+                <label for="password1">Contraseña: </label>
+                <input type="password" id="password1" name="password1">
+            </li>
+            <li>
+                <label for="password2">Repetir contraseña: </label>
+                <input type="password" id="password2" name="password2">
+            </li>
+            <li>
+                <button type="submit">Registro</button>
+            </li>
+        </ul>
+    </form>
+{% endblock %}
