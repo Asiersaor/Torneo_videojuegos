@@ -1,0 +1,25 @@
+# Entorno virtual
+venv/
+env/
+.venv/
+
+# Base de datos local
+db.sqlite3
+db.sqlite3-journal
+
+# Archivos compilados de Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Configuración sensible / variables de entorno
+.env
+
+# Archivos estáticos recolectados (si usas collectstatic)
+staticfiles/
+
+# Archivos del sistema/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
