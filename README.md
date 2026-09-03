@@ -5,6 +5,9 @@ Aplicacion Web desarrollado en Django para la gestion de un torneo de un videoju
 ## Fases de desarrollo.
 
 - Fase_01: Vista y modelo del formulario de registro.
+- Fase_02: Vista y modelo del torneo principal del videojuego.
+- Fase_03: Conexion entre paginas de inicio de sesion y torneo.
+- Fase_04 Creacion de la pagina principal donde se encuentran todos los torneos.
 
 ## Carpetas importantes:
 
@@ -15,13 +18,13 @@ Aplicacion Web desarrollado en Django para la gestion de un torneo de un videoju
 - Carpeta home: Es la app encargada de mostrar la pantalla inicial de la aplicacion web.
 - Carpeta templates: Carpeta encargada de almacenar el archivo html base.
 
-# Apps:
+## Apps:
 
 - Registro: Es la app que controla el registro de usuarios de la web.
 - Inscripcion: Sirve para el control de registro de los participantes del torneo.
 - Torneo: Es la app encargada de mostrar tanto los resultados de las fases del torneo.
 - Home: Es la encargada de mostrarnos la pantalla de inicio.
 
-# Urls.
+## Urls.
 
 - "/registro/": url encargada de registrar usuarios. 

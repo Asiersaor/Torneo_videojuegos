@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import inicio
+from .views import inicio ,listado_torneos
 
 urlpatterns = [
-    path("", inicio, name="home")
+    path("rl/", inicio, name="torneo_rl"),
+    path("", listado_torneos, name="home")
 ]

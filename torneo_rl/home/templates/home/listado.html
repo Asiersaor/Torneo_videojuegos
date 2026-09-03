@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<ul>
+    {% for juegos in torneos %}
+    <li> <a href="{% url 'torneo_rl' %}">{{ juegos }}</a></li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
