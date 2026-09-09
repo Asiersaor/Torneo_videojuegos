@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import FormularioRegistro
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 
 # Create your views here.
 def registro(request):
@@ -20,7 +20,10 @@ def inicio_sesion(request):
         if form.is_valid():
             usuario = form.get_user()
             login(request, usuario)
-            return redirect("")
+            return redirect("home")
     else:
         form = AuthenticationForm(request)
-    return render(request, "registro/inicio_sesion.html", {"form": form}) 
+    return render(request, "registro/inicio_sesion.html", {"form": form})
+def cierre_sesion(request):
+    logout(request)
+    return redirect("inicio_sesion")

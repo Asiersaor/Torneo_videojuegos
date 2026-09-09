@@ -6,6 +6,16 @@
     <title>Torneo</title>
 </head>
 <body>
+    <nav>
+        {% block nav %}
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'home' %}">Cerrar Sesion</a></li>
+            {% else %}
+                <li><a href="{% url 'inicio_sesion' %}">Iniciar Sesion</a></li>
+                <li><a href="{% url 'registro' %}">Registrarse</a></li>
+            {% endif %}
+        {% endblock %}
+    </nav>
     {% block content %}
     {% endblock %}
 </body>
