@@ -8,9 +8,6 @@
     {% for juegos in torneos %}
     <li> <a href="{% url 'torneo_rl' %}">{{ juegos }}</a></li>
     {% endfor %}
-    {% block nav %}
-    {% endblock %}
-    
 </ul>
 
 {% endblock %}

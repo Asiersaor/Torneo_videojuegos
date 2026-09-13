@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <a href="{% url 'torneo_rl' %}">Volver</a>
+    <form action="" method="post">
+
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Inscribirse</button>
+    </form>
+
+{% endblock %}

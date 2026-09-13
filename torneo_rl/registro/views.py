@@ -10,7 +10,7 @@ def registro(request):
         if form.is_valid():
             usuario = form.save()
             login(request, usuario)
-            return redirect("")
+            return redirect("home")
     else:
         form = FormularioRegistro()
     return render(request, "registro/registro.html", {"form": form}) 
@@ -25,5 +25,6 @@ def inicio_sesion(request):
         form = AuthenticationForm(request)
     return render(request, "registro/inicio_sesion.html", {"form": form})
 def cierre_sesion(request):
-    logout(request)
-    return redirect("inicio_sesion")
+    if request.method == "POST":
+        logout(request)
+    return redirect("home")
