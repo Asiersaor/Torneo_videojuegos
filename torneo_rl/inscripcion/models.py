@@ -9,3 +9,5 @@ class Inscripcion(models.Model):
    usuario = models.ForeignKey("registro.Usuario", on_delete=models.CASCADE)
    juego = models.ForeignKey("home.Torneo", on_delete=models.CASCADE)
    nivel = models.CharField(max_length=30, choices= nivel_participante, default=nivel_participante.MIDDLE)
+   def __str__(self):
+       return f"{self.usuario.username} ({self.get_nivel_display()})"

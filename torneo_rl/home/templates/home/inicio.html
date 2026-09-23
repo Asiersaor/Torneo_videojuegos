@@ -5,6 +5,9 @@
 {% block content %}
 
 <div>
+    {% if user.rol == "admin" %}
+        <a href="{% url 'generador_torneo_rl' %}">Generar Torneo</a>
+    {% endif %}
     <a href="{% url 'home' %}">Volver</a>
     <img src="{% static 'home/Imagen_fondo.jpg' %}" alt="Imagen de fondo sacada de Rocket League.">
     <h1>Campeonato oficial Psyonix.</h1>

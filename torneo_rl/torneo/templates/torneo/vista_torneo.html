@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for rondas in enfrentamientos %}
+        {% if rondas.ronda == "CUARTOS" %}
+            {% if rondas.participante_1 == mi_inscripcion %}
+                <p class="resaltado">Participante {{ rondas.participante_1 }}({{rondas.victorias_participante_1}})</p>
+            {% else %}
+                <p>Participante {{ rondas.participante_1 }}({{rondas.victorias_participante_1}})</p>
+            {% endif %}
+            {% if rondas.participante_2 == mi_inscripcion %}
+                <p class="resaltado">Participante {{ rondas.participante_2 }}({{rondas.victorias_participante_2}})</p>
+            {% else %}
+                <p>Participante {{ rondas.participante_2 }}({{rondas.victorias_participante_2}})</p>
+            {% endif %}
+        {% endif %}
+        {% if rondas.ronda == "SEMIFINALES" %}
+            {% if rondas.participante_1 == mi_inscripcion %}
+                <p class="resaltado">Participante {{ rondas.participante_1 }}({{rondas.victorias_participante_1}})</p>
+            {% else %}
+                <p>Participante {{ rondas.participante_1 }}({{rondas.victorias_participante_1}})</p>
+            {% endif %}
+            {% if rondas.participante_2 == mi_inscripcion %}
+                <p class="resaltado">Participante {{ rondas.participante_2 }}({{rondas.victorias_participante_2}})</p>
+            {% else %}
+                <p>Participante {{ rondas.participante_2 }}({{rondas.victorias_participante_2}})</p>
+            {% endif %}
+        {% endif %}
+        {% if rondas.ronda == "FINAL" %}
+            {% if rondas.participante_1 == mi_inscripcion %}
+                <p class="resaltado">Participante {{ rondas.participante_1 }}({{rondas.victorias_participante_1}})</p>
+            {% else %}
+                <p>Participante {{ rondas.participante_1 }}({{rondas.victorias_participante_1}})</p>
+            {% endif %}
+            {% if rondas.participante_2 == mi_inscripcion %}
+                <p class="resaltado">Participante {{ rondas.participante_2 }}({{rondas.victorias_participante_2}})</p>
+            {% else %}
+                <p>Participante {{ rondas.participante_2 }}({{rondas.victorias_participante_2}})</p>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    
+    <form action="{% url 'encuentros_torneo_rl' enfrentamiento.id %}" method="post">
+        {% csrf_token %}
+        <ul>
+            <li>
+                <button name="ganador" value="1">{{ enfrentamiento.participante_1 }}</button>
+            </li>
+            <li>
+                <button name="ganador" value="2">{{ enfrentamiento.participante_2 }}</button>
+            </li>
+        </ul>
+    </form>
+
+{% endblock %}

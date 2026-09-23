@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Torneo
+
 # Create your views here.
 def listado_torneos(request):
     torneos = Torneo.objects.all
