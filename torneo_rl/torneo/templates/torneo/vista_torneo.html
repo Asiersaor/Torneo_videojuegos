@@ -3,39 +3,57 @@
 {% block content %}
     {% for rondas in enfrentamientos %}
         {% if rondas.ronda == "CUARTOS" %}
-            {% if rondas.participante_1 == mi_inscripcion %}
-                <p class="resaltado">Participante {{ rondas.participante_1 }}({{rondas.victorias_participante_1}})</p>
-            {% else %}
-                <p>Participante {{ rondas.participante_1 }}({{rondas.victorias_participante_1}})</p>
-            {% endif %}
-            {% if rondas.participante_2 == mi_inscripcion %}
-                <p class="resaltado">Participante {{ rondas.participante_2 }}({{rondas.victorias_participante_2}})</p>
-            {% else %}
-                <p>Participante {{ rondas.participante_2 }}({{rondas.victorias_participante_2}})</p>
-            {% endif %}
+            <h3>CUARTOS</h3>
+            {% if user.rol == "admin" %}<a href="{% url 'encuentros_torneo_rl' rondas.id %}">{% endif %}
+                {% if rondas.participante_1 == mi_inscripcion %}
+                    <p class="resaltado">Participante {{ rondas.participante_1 }}({{rondas.victorias_participante_1}})</p>
+                {% else %}
+                    <p>Participante {{ rondas.participante_1 }}({{rondas.victorias_participante_1}})</p>
+                {% endif %}
+            {% if user.rol == "admin" %}</a>{% endif %}
+            {% if user.rol == "admin" %}<a href="{% url 'encuentros_torneo_rl' rondas.id %}">{% endif %}
+                {% if rondas.participante_2 == mi_inscripcion %}
+                    <p class="resaltado">Participante {{ rondas.participante_2 }}({{rondas.victorias_participante_2}})</p>
+                {% else %}
+                    <p>Participante {{ rondas.participante_2 }}({{rondas.victorias_participante_2}})</p>
+                {% endif %}
+            {% if user.rol == "admin" %}</a>{% endif %}
         {% endif %}
         {% if rondas.ronda == "SEMIFINALES" %}
-            {% if rondas.participante_1 == mi_inscripcion %}
-                <p class="resaltado">Participante {{ rondas.participante_1 }}({{rondas.victorias_participante_1}})</p>
-            {% else %}
-                <p>Participante {{ rondas.participante_1 }}({{rondas.victorias_participante_1}})</p>
-            {% endif %}
-            {% if rondas.participante_2 == mi_inscripcion %}
-                <p class="resaltado">Participante {{ rondas.participante_2 }}({{rondas.victorias_participante_2}})</p>
-            {% else %}
-                <p>Participante {{ rondas.participante_2 }}({{rondas.victorias_participante_2}})</p>
-            {% endif %}
+            <h3>SEMIFINALES</h3>
+            {% if user.rol == "admin" %}<a href="{% url 'encuentros_torneo_rl' rondas.id %}">{% endif %}
+                {% if rondas.participante_1 == mi_inscripcion %}
+                    <p class="resaltado">Participante {{ rondas.participante_1 }}({{rondas.victorias_participante_1}})</p>
+                {% else %}
+                    <p>Participante {{ rondas.participante_1 }}({{rondas.victorias_participante_1}})</p>
+                {% endif %}
+            {% if user.rol == "admin" %}</a>{% endif %}
+            {% if user.rol == "admin" %}<a href="{% url 'encuentros_torneo_rl' rondas.id %}">{% endif %}
+                {% if rondas.participante_2 == mi_inscripcion %}
+                    <p class="resaltado">Participante {{ rondas.participante_2 }}({{rondas.victorias_participante_2}})</p>
+                {% else %}
+                    <p>Participante {{ rondas.participante_2 }}({{rondas.victorias_participante_2}})</p>
+                {% endif %}
+            {% if user.rol == "admin" %}</a>{% endif %}
         {% endif %}
         {% if rondas.ronda == "FINAL" %}
-            {% if rondas.participante_1 == mi_inscripcion %}
-                <p class="resaltado">Participante {{ rondas.participante_1 }}({{rondas.victorias_participante_1}})</p>
-            {% else %}
-                <p>Participante {{ rondas.participante_1 }}({{rondas.victorias_participante_1}})</p>
-            {% endif %}
-            {% if rondas.participante_2 == mi_inscripcion %}
-                <p class="resaltado">Participante {{ rondas.participante_2 }}({{rondas.victorias_participante_2}})</p>
-            {% else %}
-                <p>Participante {{ rondas.participante_2 }}({{rondas.victorias_participante_2}})</p>
+            <h3>FINAL</h3>
+            {% if user.rol == "admin" %}<a href="{% url 'encuentros_torneo_rl' rondas.id %}">{% endif %}
+                {% if rondas.participante_1 == mi_inscripcion %}
+                    <p class="resaltado">Participante {{ rondas.participante_1 }}({{rondas.victorias_participante_1}})</p>
+                {% else %}
+                    <p>Participante {{ rondas.participante_1 }}({{rondas.victorias_participante_1}})</p>
+                {% endif %}
+            {% if user.rol == "admin" %}</a>{% endif %}
+            {% if user.rol == "admin" %}<a href="{% url 'encuentros_torneo_rl' rondas.id %}">{% endif %}
+                {% if rondas.participante_2 == mi_inscripcion %}
+                    <p class="resaltado">Participante {{ rondas.participante_2 }}({{rondas.victorias_participante_2}})</p>
+                {% else %}
+                    <p>Participante {{ rondas.participante_2 }}({{rondas.victorias_participante_2}})</p>
+                {% endif %}
+            {% if user.rol == "admin" %}</a>{% endif %}
+            {% if rondas.ganador_enfrentamiento %}
+                <h4>Campeon: {{ rondas.ganador_enfrentamiento }}</h4>
             {% endif %}
         {% endif %}
     {% endfor %}

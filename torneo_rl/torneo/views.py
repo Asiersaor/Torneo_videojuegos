@@ -29,6 +29,7 @@ def generar_torneo(request):
     semifinal_1.save()
     semifinal_2.siguiente_enfrentamiento = final
     semifinal_2.save()
+    return redirect("vista_torneo_rl")
 def encuentros(request, id):
     if request.user.rol != "admin":
         return redirect("home")
