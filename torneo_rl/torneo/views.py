@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
 from inscripcion.models import Inscripcion
 from .models import Enfrentamiento, Partida
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
+@login_required
 def generar_torneo(request):
     enfrentamiento_cuartos = []
     if request.user.rol != "admin":
@@ -30,6 +33,8 @@ def generar_torneo(request):
     semifinal_2.siguiente_enfrentamiento = final
     semifinal_2.save()
     return redirect("vista_torneo_rl")
+
+@login_required
 def encuentros(request, id):
     if request.user.rol != "admin":
         return redirect("home")
@@ -61,7 +66,11 @@ def encuentros(request, id):
             siguiente.save()
         return redirect("home")
     return render(request, "torneo/construccion_torneo.html", {"enfrentamiento":enfrentamiento})
+
 def ver_torneo(request):
     enfrentamientos = Enfrentamiento.objects.all()
-    mi_inscripcion = Inscripcion.objects.filter(usuario=request.user).first()
+    if request.user.is_authenticated:
+        mi_inscripcion = Inscripcion.objects.filter(usuario=request.user).first()
+    else:
+        mi_inscripcion = None
     return render(request, "torneo/vista_torneo.html", {"enfrentamientos":enfrentamientos, "mi_inscripcion": mi_inscripcion})

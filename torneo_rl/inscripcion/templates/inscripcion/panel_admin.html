@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <table>
+        <tr>
+            <th>Usuario</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Nivel</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+        </tr>
+        {% for inscripcion in inscripciones %}
+        <tr>
+            <td>{{ inscripcion.usuario.username }}</td>
+            <td>{{ inscripcion.usuario.first_name }}</td>
+            <td>{{ inscripcion.usuario.last_name }}</td>
+            <td>{{ inscripcion.get_nivel_display }}</td>
+            <td><a href="{% url 'editar_inscripcion' inscripcion.id%}">Editar</a></td>
+            <td><a href="{% url 'home' %}">Eliminar</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
