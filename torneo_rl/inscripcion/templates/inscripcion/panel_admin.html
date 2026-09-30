@@ -17,7 +17,10 @@
             <td>{{ inscripcion.usuario.last_name }}</td>
             <td>{{ inscripcion.get_nivel_display }}</td>
             <td><a href="{% url 'editar_inscripcion' inscripcion.id%}">Editar</a></td>
-            <td><a href="{% url 'home' %}">Eliminar</a></td>
+            <td><form action="{% url 'eliminar_inscripcion' inscripcion.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Eliminar</button>
+                </form></td>
         </tr>
         {% endfor %}
     </table>

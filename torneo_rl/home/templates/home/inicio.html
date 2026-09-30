@@ -7,6 +7,7 @@
 <div>
     {% if user.rol == "admin" %}
         <a href="{% url 'generador_torneo_rl' %}">Generar Torneo</a>
+        <a href="{% url 'panel_admin' %}">Panel de administrador</a>
     {% endif %}
     <a href="{% url 'home' %}">Volver</a>
     <img src="{% static 'home/Imagen_fondo.jpg' %}" alt="Imagen de fondo sacada de Rocket League.">

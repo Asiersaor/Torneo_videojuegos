@@ -40,3 +40,11 @@ def editar_inscripcion(request, id):
     else:
         form = FormularioInscripcion(instance=inscripcion_existente)
     return render(request, "inscripcion/inscripcion.html", {"form": form})
+@login_required
+def eliminar_inscripcion(request, id):
+    if request.user.rol != "admin":
+        return redirect("home")
+    inscripcion_existente = Inscripcion.objects.get(id=id)
+    if request.method == "POST":
+        inscripcion_existente.delete()
+    return redirect("panel_admin")
