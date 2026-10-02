@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <a href="{% url 'torneo_rl' %}">Volver</a>
     {% for rondas in enfrentamientos %}
         {% if rondas.ronda == "CUARTOS" %}
             <h3>CUARTOS</h3>

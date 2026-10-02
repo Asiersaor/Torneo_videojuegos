@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    
+    <a href="{% url 'vista_torneo_rl' %}">Volver</a>
     <form action="{% url 'encuentros_torneo_rl' enfrentamiento.id %}" method="post">
         {% csrf_token %}
         <ul>
@@ -13,5 +13,4 @@
             </li>
         </ul>
     </form>
-
 {% endblock %}

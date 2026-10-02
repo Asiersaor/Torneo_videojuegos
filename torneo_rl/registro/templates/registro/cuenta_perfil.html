@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Datos de la cuenta</h2>
+    <ul>
+        <li><p>{{ user.username }}</p></li>
+        <li><p>{{ user.first_name }}</p></li>
+        <li><p>{{ user.last_name }}</p></li>
+        {% if perfil_inscripcion %}
+        <li><p>{{ perfil_inscripcion.get_nivel_display }}</p></li>
+        {% else %}
+        <p>Usuario no Inscrito</p>
+        {% endif %}
+    </ul>
+    <a href="{% url 'home' %}">Volver</a>
+{% endblock %}

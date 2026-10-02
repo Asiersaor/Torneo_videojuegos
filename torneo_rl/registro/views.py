@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .forms import FormularioRegistro
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout
+from django.contrib.auth.decorators import login_required
+from inscripcion.models import Inscripcion
 
 # Create your views here.
 def registro(request):
@@ -28,3 +30,7 @@ def cierre_sesion(request):
     if request.method == "POST":
         logout(request)
     return redirect("home")
+@login_required
+def cuenta_perfil(request):
+    perfil_inscripcion = Inscripcion.objects.filter(usuario=request.user).first()
+    return render(request, "registro/cuenta_perfil.html", {"perfil_inscripcion": perfil_inscripcion})

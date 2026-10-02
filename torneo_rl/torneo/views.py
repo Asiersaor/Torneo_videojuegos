@@ -66,7 +66,6 @@ def encuentros(request, id):
             siguiente.save()
         return redirect("home")
     return render(request, "torneo/construccion_torneo.html", {"enfrentamiento":enfrentamiento})
-
 def ver_torneo(request):
     enfrentamientos = Enfrentamiento.objects.all()
     if request.user.is_authenticated:
@@ -74,3 +73,9 @@ def ver_torneo(request):
     else:
         mi_inscripcion = None
     return render(request, "torneo/vista_torneo.html", {"enfrentamientos":enfrentamientos, "mi_inscripcion": mi_inscripcion})
+@login_required
+def estadisticas(request):
+    inscripciones_amateur = Inscripcion.objects.filter(nivel="LOW").count()
+    inscripciones_medio = Inscripcion.objects.filter(nivel="MID").count()
+    inscripciones_experto = Inscripcion.objects.filter(nivel="PRO").count()
+    return render(request, "torneo/estadisticas.html", {"inscripciones_amateur": inscripciones_amateur, "inscripciones_medio": inscripciones_medio, "inscripciones_experto": inscripciones_experto})

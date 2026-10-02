@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <div style="width: 1000px; height: 600px;">
+        <canvas id="graficaNiveles"></canvas>
+    </div>
+    <script>
+    const ctx = document.getElementById('graficaNiveles');
+    const data = {
+        labels: ['Amateur', 'Medio', 'Experto'],
+        datasets: [{
+            label: 'Jugadores',
+            data: ["{{ inscripciones_amateur }}", "{{ inscripciones_medio }}", "{{ inscripciones_experto }}"]
+        }]
+    };
+
+    const config = {
+    type: 'doughnut',
+    data: data, 
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Distribucion de niveles entre los jugadores'
+                }
+            }
+         },
+        };
+    new Chart(ctx, config);
+    </script>
+{% endblock %}

@@ -13,7 +13,12 @@
                     {% csrf_token %}
                     <button>Cerrar Sesion</button>
                 </form></li>
+                {% if request.resolver_match.url_name != "cuenta_perfil" %}
+                <li><a href="{% url 'cuenta_perfil' %}">Mi perfil</a></li>
+                {% endif %}
+                {% if not mi_inscripcion and user.rol != "admin"%}
                 <li><a href="{% url 'inscripcion' %}">Inscribirse</a></li>
+                {% endif %}
             {% else %}
                 <li><a href="{% url 'inicio_sesion' %}">Iniciar Sesion</a></li>
                 <li><a href="{% url 'registro' %}">Registrarse</a></li>
