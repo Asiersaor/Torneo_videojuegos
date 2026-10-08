@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from inscripcion.models import Inscripcion
 from .models import Enfrentamiento, Partida
 from django.contrib.auth.decorators import login_required
-
+from django.db.models import Sum
 
 # Create your views here.
 @login_required
@@ -36,10 +36,10 @@ def generar_torneo(request):
 
 @login_required
 def encuentros(request, id):
-    if request.user.rol != "admin":
-        return redirect("home")
     enfrentamiento = Enfrentamiento.objects.get(id=id)
     if request.method == "POST":
+        if request.user.rol != "admin":
+            return redirect("encuentros_torneo_rl", id)
         ganador = request.POST.get("ganador")
         if ganador == "1":
             ganador_partida = enfrentamiento.participante_1
@@ -78,4 +78,12 @@ def estadisticas(request):
     inscripciones_amateur = Inscripcion.objects.filter(nivel="LOW").count()
     inscripciones_medio = Inscripcion.objects.filter(nivel="MID").count()
     inscripciones_experto = Inscripcion.objects.filter(nivel="PRO").count()
-    return render(request, "torneo/estadisticas.html", {"inscripciones_amateur": inscripciones_amateur, "inscripciones_medio": inscripciones_medio, "inscripciones_experto": inscripciones_experto})
+    participantes_totales = Inscripcion.objects.all()
+    victorias_totales = []
+    nombres_victorias = []
+    for jugador in participantes_totales:
+         victorias_participante_1 = Enfrentamiento.objects.filter(participante_1=jugador).aggregate(Sum("victorias_participante_1"))
+         victorias_participante_2 = Enfrentamiento.objects.filter(participante_2=jugador).aggregate(Sum("victorias_participante_2"))
+         victorias_totales.append((victorias_participante_1["victorias_participante_1__sum"] or 0) + (victorias_participante_2["victorias_participante_2__sum"] or 0))
+         nombres_victorias.append(str(jugador))
+    return render(request, "torneo/estadisticas.html", {"inscripciones_amateur": inscripciones_amateur, "inscripciones_medio": inscripciones_medio, "inscripciones_experto": inscripciones_experto, "victorias_totales": victorias_totales, "nombres_victorias": nombres_victorias})

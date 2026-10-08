@@ -2,15 +2,52 @@
 
 {% block content %}
     <a href="{% url 'vista_torneo_rl' %}">Volver</a>
+    {% if user.rol == "admin" %}
     <form action="{% url 'encuentros_torneo_rl' enfrentamiento.id %}" method="post">
         {% csrf_token %}
         <ul>
             <li>
-                <button name="ganador" value="1">{{ enfrentamiento.participante_1 }}</button>
+                <button name="ganador" value="1">{{ enfrentamiento.participante_1 }}</button><p>{{ enfrentamiento.victorias_participante_1 }}</p>
             </li>
             <li>
-                <button name="ganador" value="2">{{ enfrentamiento.participante_2 }}</button>
+                <button name="ganador" value="2">{{ enfrentamiento.participante_2 }}</button><p>{{ enfrentamiento.victorias_participante_2 }}</p>
             </li>
         </ul>
     </form>
+    {% else %}
+    <ul>
+        <li>
+            <p>{{ enfrentamiento.participante_1 }} {{ enfrentamiento.victorias_participante_1 }}</p>
+        </li>
+        <li>
+            <p>{{ enfrentamiento.participante_2 }} {{ enfrentamiento.victorias_participante_2 }}</p>
+        </li>
+    </ul>
+    {% endif %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <div style="width: 1000px; height: 600px;">
+        <canvas id="grafico_enfrentamientos"></canvas>
+    </div>
+    <script>
+    const ctx = document.getElementById('grafico_enfrentamientos');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ["{{ enfrentamiento.participante_1 }}", "{{ enfrentamiento.participante_2 }}"],
+      datasets: [{
+        label: 'Jugadores',
+        data: ["{{ enfrentamiento.victorias_participante_1 }}", "{{ enfrentamiento.victorias_participante_2 }}"],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+    </script>
 {% endblock %}

@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+{{ nombres_victorias|json_script:"nombres-data" }}
+{{ victorias_totales|json_script:"victorias-data" }}
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <div style="width: 1000px; height: 600px;">
         <canvas id="graficaNiveles"></canvas>
@@ -32,5 +36,32 @@
          },
         };
     new Chart(ctx, config);
+    </script>
+    <div style="width: 1000px; height: 600px;">
+        <canvas id="graficaVictorias"></canvas>
+    </div>
+    <script>
+    const nombres = JSON.parse(document.getElementById("nombres-data").textContent);
+    const victorias = JSON.parse(document.getElementById("victorias-data").textContent);
+    const ctx2 = document.getElementById('graficaVictorias');
+
+    new Chart(ctx2, {
+    type: 'bar',
+    data: {
+      labels: nombres,
+      datasets: [{
+        label: 'Jugadores',
+        data: victorias,
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+     }
+    });
     </script>
 {% endblock %}

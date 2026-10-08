@@ -13,6 +13,7 @@ Aplicacion Web desarrollado en Django para la gestion de un torneo de un videoju
 - Fase_07: Vista y modelo del formulario de inscripcion para los torneos.
 - Fase_08: Construccion de la estructura principal del torneo.
 - Fase_09: Panel de Admin para gestionar inscripciones.
+- Fase_10: Implementacion de estadisticas en cada encuentro y en la url "/estadisticas/"
 
 ## Carpetas importantes:
 
@@ -42,3 +43,4 @@ Aplicacion Web desarrollado en Django para la gestion de un torneo de un videoju
 - "/generador_torneo_rl/" Esta url es solo accesible para el admin. Contiene la logica para generar el llamado "Bracket".
 - "/encuentros_torneo_rl/x/": Otra url solo accesible para el admin y gestiona el marcador de los encuentros.
 - "/panel_admin/" Url accesible solo para el admin, que ayuda a la gestion de inscripciones.
+- "/estadisticas/" Url para consultar algunas estadisticas del torneo.
