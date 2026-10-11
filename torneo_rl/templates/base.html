@@ -1,13 +1,16 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'home/estilos.css' %}">
     <title>Torneo</title>
 </head>
 <body>
-    <nav>
-        {% block nav %}
+    {% block nav %}
+        <nav>
+            <ul>
             {% if user.is_authenticated %}
                 <li><form action="{% url 'cerrar_sesion' %}" method="post">
                     {% csrf_token %}
@@ -23,8 +26,9 @@
                 <li><a href="{% url 'inicio_sesion' %}">Iniciar Sesion</a></li>
                 <li><a href="{% url 'registro' %}">Registrarse</a></li>
             {% endif %}
-        {% endblock %}
-    </nav>
+            </ul> 
+        </nav>
+    {% endblock %}
     {% block content %}
     {% endblock %}
 </body>
