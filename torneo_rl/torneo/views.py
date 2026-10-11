@@ -73,7 +73,6 @@ def ver_torneo(request):
     else:
         mi_inscripcion = None
     return render(request, "torneo/vista_torneo.html", {"enfrentamientos":enfrentamientos, "mi_inscripcion": mi_inscripcion})
-@login_required
 def estadisticas(request):
     inscripciones_amateur = Inscripcion.objects.filter(nivel="LOW").count()
     inscripciones_medio = Inscripcion.objects.filter(nivel="MID").count()

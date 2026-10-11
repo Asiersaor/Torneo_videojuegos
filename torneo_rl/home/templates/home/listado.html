@@ -4,9 +4,13 @@
 
 {% block content %}
 
-<ul>
+<ul class="lista-torneos">
     {% for juegos in torneos %}
-    <li> <a href="{% url 'torneo_rl' %}">{{ juegos }}</a></li>
+        {% if juegos.juego == "Rocket League" %}
+            <li class="tarjeta"><a href="{% url 'torneo_rl' %}">{{ juegos }}</a></li>
+        {% else %}
+            <li class="tarjeta proximamente">{{ juegos }}</li>
+        {% endif %}
     {% endfor %}
 </ul>
 
