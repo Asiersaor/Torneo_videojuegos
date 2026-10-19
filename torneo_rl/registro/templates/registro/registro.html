@@ -7,11 +7,11 @@
 <div class="pagina-form">
     <div class="tarjeta-form">
         <h2>Crear cuenta</h2>
-        <p class="subtitulo">Rellena tus datos para poder participar en el torneo.</p>
+        <p class="subtitulo">Rellena tus datos para poder participar en los distintos torneos.</p>
         <form action="" method="post">
             {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit">Iniciar Sesion</button>
+                <button type="submit">Registrarse</button>
         </form>
         <p>¿Ya tienes cuenta? <a href="{% url 'inicio_sesion' %}">Inicia Sesion</a></p>
         <a href="{% url 'home' %}">Volver al inicio</a>

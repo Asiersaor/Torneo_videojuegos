@@ -1,15 +1,24 @@
 body {
-    background-color: #0b1a2e;
+    background-color: rgb(20, 20, 20);
     margin: 0;
     font-family: 'Trebuchet MS', sans-serif; 
-    color: #e6edf5;
+    color: #f3f3f3;
+    padding: 0;
 }
 nav {
-    background-color: #13294b;
-    padding: 10px 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 10;
+    background-color: transparent;
+    padding: 20px 20px 0px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 0;
+    font-size: 20px;
 }
 nav ul{
     list-style: none;
@@ -20,11 +29,11 @@ nav ul{
     align-items: center;
 }
 a {
-    color: #4da3ff;
+    color: #f3f3f3;
     text-decoration: none;
 }
 a:hover{
-    color: #8cc4ff;
+    color: #f3f3f3;
 }
 .lista-torneos{
     display: grid;
@@ -52,17 +61,6 @@ a:hover{
 .tarjeta a{
     display: block;
     padding: 40px;
-}
-nav button{
-    background: none;
-    border: none;
-    color: #4da3ff;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: inherit;
-}
-nav button:hover{
-    color: #8cc4ff;
 }
 .hero{
     background-image: linear-gradient(rgb(0,0,0,0.7), rgb(0,0,0,0.7)), url('Imagen_fondo.jpg');
@@ -102,7 +100,7 @@ nav button:hover{
     flex-direction: column;
 }
 .ronda h3{
-    margin: 0 0 20px;
+    margin: 60px 0 20px;
 }
 .enfrentamiento{
     display: block;
@@ -150,7 +148,7 @@ button.eliminar:hover{
 table{
     border-collapse: collapse;
     width: 100%;
-    margin: 20px 0;
+    margin: 80px 0;
 }
 th{
     background-color: #13294b;
@@ -224,4 +222,41 @@ tr:hover{
     list-style: none;
     padding: 0;
     color: #ff6b75;
+}
+nav button{
+    background: none;
+    border: none;
+    color: #f3f3f3;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0;
+    border-radius: 0;
+    transition: none;
+    box-shadow: none;
+}
+nav button:hover{
+    color: #f3f3f3;
+    background: none;
+}
+.fondo-inicio{
+    background-image: linear-gradient(rgb(0,0,0,0.7), rgb(0,0,0,0.7)), url('Imagen_Listado.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;  
+}
+.titulo-inicio h1{
+    text-align: center;
+    font-size: 80px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    margin: 0;
+}
+.titulo-inicio p{
+    text-align: center;
+    font-size: 18px;
+    color: #f3f3f3;
+    opacity: 0.6;
+    padding-left: 75px;
+    padding-right: 75px;
 }

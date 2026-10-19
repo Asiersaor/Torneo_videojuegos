@@ -3,7 +3,11 @@
 {% load static %}
 
 {% block content %}
-
+<section class="fondo-inicio">
+    <div class="titulo-inicio">
+        <h1>JUEGA, COMPITE Y GANA</h1>
+        <p>La plataforma definitiva para aquellos jugadores competitivos que quieran jugar y alcanzar su maximo nivel, independientemente de su habilidad, con emparejamientos justos por nivel. Si quieres empezar en el mundo competitivo, esta es tu lugar.</p>
+    </div>
 <ul class="lista-torneos">
     {% for juegos in torneos %}
         {% if juegos.juego == "Rocket League" %}
@@ -13,5 +17,6 @@
         {% endif %}
     {% endfor %}
 </ul>
+</section>
 
 {% endblock %}
