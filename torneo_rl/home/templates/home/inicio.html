@@ -3,15 +3,11 @@
 {% load static %}
 
 {% block nav_torneo %}
-<nav>
-    <ul>
-        <li><a href="{% url 'estadisticas' %}">Estadisticas</a></li>
-        {% if user.rol == "admin" %}
-            <li><a href="{% url 'generador_torneo_rl' %}">Generar Torneo</a></li>
-            <li><a href="{% url 'panel_admin' %}">Panel de administrador</a></li>
-        {% endif %}
-    </ul>
-</nav>
+    <li><a href="{% url 'estadisticas' %}">Estadisticas</a></li>
+    {% if user.rol == "admin" %}
+        <li><a href="{% url 'generador_torneo_rl' %}">Generar Torneo</a></li>
+        <li><a href="{% url 'panel_admin' %}">Panel de administrador</a></li>
+    {% endif %}
 {% endblock %}
 
 {% block content %}

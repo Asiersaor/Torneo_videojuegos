@@ -12,6 +12,10 @@
         <nav>
             <ul>
                 <li><a href="{% url 'home' %}">Torneos</a></li>
+                {% block nav_torneo %}
+                {% endblock %}
+            </ul>
+            <ul>
                 {% if user.is_authenticated %}
                 {% if request.resolver_match.url_name != "cuenta_perfil" %}
                 <li><a href="{% url 'cuenta_perfil' %}">Mi perfil</a></li>
@@ -29,8 +33,6 @@
                 {% endif %}
             </ul> 
         </nav>
-    {% endblock %}
-    {% block nav_torneo %}
     {% endblock %}
     {% block content %}
     {% endblock %}

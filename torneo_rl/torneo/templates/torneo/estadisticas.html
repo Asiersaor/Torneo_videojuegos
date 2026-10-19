@@ -1,5 +1,13 @@
 {% extends "base.html" %}
 
+{% block nav_torneo %}
+    <li><a href="{% url 'torneo_rl' %}">Torneo Rocket League</a></li>
+    <li><a href="{% url 'vista_torneo_rl' %}">Resultados Torneo Rocket League</a></li>
+    {% if user.rol == "admin" %}
+        <li><a href="{% url 'panel_admin' %}">Panel de administrador</a></li>
+    {% endif %}
+{% endblock %}
+
 {% block content %}
 
 {{ nombres_victorias|json_script:"nombres-data" }}

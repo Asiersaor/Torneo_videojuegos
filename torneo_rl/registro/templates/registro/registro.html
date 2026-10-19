@@ -1,36 +1,20 @@
 {% extends "base.html" %}
 
+{% block nav %}
+{% endblock %}
+
 {% block content %}
-
-    <a href="{% url 'torneo_rl' %}">Volver</a>
-    <form action="" method="post">
-        
-        {% csrf_token %}
-        <ul>
-            <li>
-                <label for="username">Usuario: </label>
-                <input type="text" id="username" name="username">
-            </li>
-            <li>
-                <label for="first_name">Nombre: </label>
-                <input type="text" id="first_name" name="first_name">
-            </li>
-            <li>
-                <label for="last_name">Apellidos: </label>
-                <input type="text" id="last_name" name="last_name">
-            </li>
-            <li>
-                <label for="password1">Contraseña: </label>
-                <input type="password" id="password1" name="password1">
-            </li>
-            <li>
-                <label for="password2">Repetir contraseña: </label>
-                <input type="password" id="password2" name="password2">
-            </li>
-            <li>
-                <button type="submit">Registrarse</button>
-            </li>
-        </ul>
-    </form>
-
+<div class="pagina-form">
+    <div class="tarjeta-form">
+        <h2>Crear cuenta</h2>
+        <p class="subtitulo">Rellena tus datos para poder participar en el torneo.</p>
+        <form action="" method="post">
+            {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Iniciar Sesion</button>
+        </form>
+        <p>¿Ya tienes cuenta? <a href="{% url 'inicio_sesion' %}">Inicia Sesion</a></p>
+        <a href="{% url 'home' %}">Volver al inicio</a>
+    </div>
+</div>
 {% endblock %}

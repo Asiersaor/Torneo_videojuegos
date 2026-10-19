@@ -7,6 +7,9 @@ body {
 nav {
     background-color: #13294b;
     padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 nav ul{
     list-style: none;
@@ -60,4 +63,165 @@ nav button{
 }
 nav button:hover{
     color: #8cc4ff;
+}
+.hero{
+    background-image: linear-gradient(rgb(0,0,0,0.7), rgb(0,0,0,0.7)), url('Imagen_fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+}
+.hero p{
+    max-width: 600px;
+    margin: 0 auto;
+}
+.boton{
+    background-color: #4da3ff;
+    color: #0b1a2e;
+    padding: 12px 30px;
+    border-radius: 8px;
+    display: inline-block;
+}
+.boton:hover{
+    background-color: #8cc4ff;
+    color: #0b1a2e;
+}
+.bracket{
+    display: flex;
+    gap: 30px;
+    padding: 15px;
+}
+.ronda{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.ronda h3{
+    margin: 0 0 20px;
+}
+.enfrentamiento{
+    display: block;
+    background-color: #13294b;
+    border-radius: 10px;
+    padding: 20px;
+    border: 2px solid #4da3ff;
+}
+.resaltado{
+    color: #ffb703;
+}
+.cajas{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 30px;
+}
+.fondo-bracket{
+    background-image: linear-gradient(rgb(0,0,0,0.7), rgb(0,0,0,0.7)), url('Imagen_torneo.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: calc(100vh - 60px);
+}
+button{
+    background-color: #4da3ff;
+    color: #0b1a2e;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: 0.2s;
+}
+button:hover{
+    background-color: #8cc4ff;
+}
+button.eliminar{
+    background-color: #e63946;
+    color: #ffffff;
+}
+button.eliminar:hover{
+    background-color: #ff6b75;
+}
+table{
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+}
+th{
+    background-color: #13294b;
+    text-align: left;
+    padding: 12px;
+}
+td{
+    padding: 12px;
+    border-bottom: 1px solid #13294b;
+}
+tr:hover{
+    background-color: #102542;
+}
+.contenedor{
+    padding: 0 40px;
+}
+.pagina-form{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.tarjeta-form{
+    background-color: #13294b;
+    border-radius: 12px;
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+.tarjeta-form input{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #0b1a2e;
+    color: #e6edf5;
+    border: 1px solid #123457;
+}
+.tarjeta-form select{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #0b1a2e;
+    color: #e6edf5;
+    border: 1px solid #4da3ff;
+}
+.tarjeta-form p{
+    margin: 0 0 16px;
+}
+.tarjeta-form button{
+    width: 100%;
+}
+.subtitulo{
+    font-size: 14px;
+    color: #9fb3c8;
+    text-align: center;
+}
+.tarjeta-form h2{
+    text-align: center;
+    margin-top: 0;
+}
+.tarjeta-form .helptext{
+    font-size: 12px;
+    color: #9fb3c8;
+    display: none;
+}
+.tarjeta-form .errorlist{
+    list-style: none;
+    padding: 0;
+    color: #ff6b75;
 }

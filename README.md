@@ -13,7 +13,8 @@ Aplicacion Web desarrollado en Django para la gestion de un torneo de un videoju
 - Fase_07: Vista y modelo del formulario de inscripcion para los torneos.
 - Fase_08: Construccion de la estructura principal del torneo.
 - Fase_09: Panel de Admin para gestionar inscripciones.
-- Fase_10: Implementacion de estadisticas en cada encuentro y en la url "/estadisticas/"
+- Fase_10: Implementacion de estadisticas en cada encuentro y en la url "/estadisticas/".
+- Fase_11: Fase de aplicacion de estilos y archivo Css.
 
 ## Carpetas importantes:
 
@@ -32,7 +33,6 @@ Aplicacion Web desarrollado en Django para la gestion de un torneo de un videoju
 - Home: Es la encargada de mostrarnos la pantalla de inicio.
 
 ## Urls.
-
 
 - El home: Es la url principal donde aparecen todos los torneos.
 - "/rl/": Url encargada de mostrar los datos del torneo.

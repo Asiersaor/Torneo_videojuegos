@@ -1,61 +1,76 @@
 {% extends "base.html" %}
 
+{% block nav_torneo %}
+    <li><a href="{% url 'estadisticas' %}">Estadisticas</a></li>
+    <li><a href="{% url 'torneo_rl' %}">Torneo Rocket League</a></li>
+    {% if user.rol == "admin" %}
+        <li><a href="{% url 'panel_admin' %}">Panel de administrador</a></li>
+    {% endif %}
+{% endblock %}
+
 {% block content %}
-    <a href="{% url 'torneo_rl' %}">Volver</a>
-    {% for rondas in enfrentamientos %}
-        {% if rondas.ronda == "CUARTOS" %}
-            <h3>CUARTOS</h3>
-            <a href="{% url 'encuentros_torneo_rl' rondas.id %}">
-                {% if rondas.participante_1 == mi_inscripcion %}
-                    <p class="resaltado">Participante {{ rondas.participante_1 }}({{rondas.victorias_participante_1}})</p>
-                {% else %}
-                    <p>Participante {{ rondas.participante_1 }}({{rondas.victorias_participante_1}})</p>
-                {% endif %}
-            </a>
-            <a href="{% url 'encuentros_torneo_rl' rondas.id %}">
-                {% if rondas.participante_2 == mi_inscripcion %}
-                    <p class="resaltado">Participante {{ rondas.participante_2 }}({{rondas.victorias_participante_2}})</p>
-                {% else %}
-                    <p>Participante {{ rondas.participante_2 }}({{rondas.victorias_participante_2}})</p>
-                {% endif %}
-            </a>
-        {% endif %}
-        {% if rondas.ronda == "SEMIFINALES" %}
-            <h3>SEMIFINALES</h3>
-            <a href="{% url 'encuentros_torneo_rl' rondas.id %}">
-                {% if rondas.participante_1 == mi_inscripcion %}
-                    <p class="resaltado">Participante {{ rondas.participante_1 }}({{rondas.victorias_participante_1}})</p>
-                {% else %}
-                    <p>Participante {{ rondas.participante_1 }}({{rondas.victorias_participante_1}})</p>
-                {% endif %}
-            </a>
-            <a href="{% url 'encuentros_torneo_rl' rondas.id %}">
-                {% if rondas.participante_2 == mi_inscripcion %}
-                    <p class="resaltado">Participante {{ rondas.participante_2 }}({{rondas.victorias_participante_2}})</p>
-                {% else %}
-                    <p>Participante {{ rondas.participante_2 }}({{rondas.victorias_participante_2}})</p>
-                {% endif %}
-            </a>
-        {% endif %}
-        {% if rondas.ronda == "FINAL" %}
-            <h3>FINAL</h3>
-            <a href="{% url 'encuentros_torneo_rl' rondas.id %}">
-                {% if rondas.participante_1 == mi_inscripcion %}
-                    <p class="resaltado">Participante {{ rondas.participante_1 }}({{rondas.victorias_participante_1}})</p>
-                {% else %}
-                    <p>Participante {{ rondas.participante_1 }}({{rondas.victorias_participante_1}})</p>
-                {% endif %}
-            </a>
-            <a href="{% url 'encuentros_torneo_rl' rondas.id %}">
-                {% if rondas.participante_2 == mi_inscripcion %}
-                    <p class="resaltado">Participante {{ rondas.participante_2 }}({{rondas.victorias_participante_2}})</p>
-                {% else %}
-                    <p>Participante {{ rondas.participante_2 }}({{rondas.victorias_participante_2}})</p>
-                {% endif %}
-            </a>
-            {% if rondas.ganador_enfrentamiento %}
-                <h4>Campeon: {{ rondas.ganador_enfrentamiento }}</h4>
-            {% endif %}
-        {% endif %}
-    {% endfor %}
+<section class="fondo-bracket">
+<div class="bracket">
+    <div class="ronda">
+        <h3>CUARTOS</h3>
+        <div class="cajas">
+            {% for rondas in enfrentamientos_cuartos %}
+                <a class="enfrentamiento" href="{% url 'encuentros_torneo_rl' rondas.id %}">
+                    {% if rondas.participante_1 == mi_inscripcion and mi_inscripcion %}
+                        <p class="resaltado">Participante {{ rondas.participante_1|default:"Por definir" }}({{rondas.victorias_participante_1}})</p>
+                    {% else %}
+                        <p>Participante {{ rondas.participante_1|default:"Por definir" }}({{rondas.victorias_participante_1}})</p>
+                    {% endif %}
+                    {% if rondas.participante_2 == mi_inscripcion and mi_inscripcion %}
+                        <p class="resaltado">Participante {{ rondas.participante_2|default:"Por definir" }}({{rondas.victorias_participante_2}})</p>
+                    {% else %}
+                        <p>Participante {{ rondas.participante_2|default:"Por definir" }}({{rondas.victorias_participante_2}})</p>
+                    {% endif %}
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="ronda">
+        <h3>SEMIFINALES</h3>
+        <div class="cajas">
+            {% for rondas in enfrentamientos_semifinales %}
+                <a class="enfrentamiento" href="{% url 'encuentros_torneo_rl' rondas.id %}">
+                    {% if rondas.participante_1 == mi_inscripcion and mi_inscripcion %}
+                        <p class="resaltado">Participante {{ rondas.participante_1|default:"Por definir" }}({{rondas.victorias_participante_1}})</p>
+                    {% else %}
+                        <p>Participante {{ rondas.participante_1|default:"Por definir" }}({{rondas.victorias_participante_1}})</p>
+                    {% endif %}
+                    {% if rondas.participante_2 == mi_inscripcion and mi_inscripcion %}
+                        <p class="resaltado">Participante {{ rondas.participante_2|default:"Por definir" }}({{rondas.victorias_participante_2}})</p>
+                    {% else %}
+                        <p>Participante {{ rondas.participante_2|default:"Por definir" }}({{rondas.victorias_participante_2}})</p>
+                    {% endif %}
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="ronda">
+        <h3>FINAL</h3>
+        <div class="cajas">
+            {% for rondas in enfrentamientos_final%}
+                <a class="enfrentamiento"  href="{% url 'encuentros_torneo_rl' rondas.id %}">
+                    {% if rondas.participante_1 == mi_inscripcion and mi_inscripcion %}
+                        <p class="resaltado">Participante {{ rondas.participante_1|default:"Por definir" }}({{rondas.victorias_participante_1}})</p>
+                    {% else %}
+                        <p>Participante {{ rondas.participante_1|default:"Por definir" }}({{rondas.victorias_participante_1}})</p>
+                    {% endif %}
+                    {% if rondas.participante_2 == mi_inscripcion and mi_inscripcion %}
+                        <p class="resaltado">Participante {{ rondas.participante_2|default:"Por definir" }}({{rondas.victorias_participante_2}})</p>
+                    {% else %}
+                        <p>Participante {{ rondas.participante_2|default:"Por definir" }}({{rondas.victorias_participante_2}})</p>
+                    {% endif %}
+                    {% if rondas.ganador_enfrentamiento %}
+                        <h4>Campeon: {{ rondas.ganador_enfrentamiento }}</h4>
+                    {% endif %}
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</section>
 {% endblock %}
