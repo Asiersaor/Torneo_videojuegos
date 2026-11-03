@@ -9,12 +9,16 @@
         <li><a href="{% url 'panel_admin' %}">Panel de administrador</a></li>
     {% endif %}
 {% endblock %}
-
 {% block content %}
     <section class="hero">
-        <h1>Campeonato oficial Psyonix.</h1>
+        <h1>Torneo oficial Psyonix.</h1>
         <h2>Demuestra tu habilidad.</h2>
         <p>Campeonato oficial aprobado por Psyonix, demuestra que eres el mejor jugador de Rocket League participando en nuestro torneo oficial, con premios canjeables dentro del propio juego. Mucha suerte contendiente, y a por todas.</p>
         <a href="{% url 'vista_torneo_rl' %}" class="boton">Acceso a Torneo</a>
+    </section>
+    <section class="reglamento">
+        <h1>Reglamento</h1>
+        <h2>Objetivo</h2>
+        <p>Cada enfrentamiento contara con un total de 3 partidos entre los dos participantes, menos cuando uno de los participantes llega a 2 partidos ganados, en el que el ganador es el que gane mas partidos. Estos partidos seran salas privadas y partidos privados organizados por nivel. El modo de juego sera el famoso y conocido Balonrueda clasico y la region debe de ser "Europa".</p>
     </section>
 {% endblock %}
