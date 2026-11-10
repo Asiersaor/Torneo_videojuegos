@@ -6,3 +6,8 @@ class FormularioRegistro(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = Usuario
         fields = ["username", "first_name", "last_name"]
+
+class ModificacionCuenta(forms.ModelForm):
+    class Meta:
+        model = Usuario
+        fields = ["username", "first_name", "last_name", "rol"]

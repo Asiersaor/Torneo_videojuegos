@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="perfil">
     <h2>Datos de la cuenta</h2>
     <ul>
         <li><p>{{ user.username }}</p></li>
@@ -12,5 +13,5 @@
         <p>Usuario no Inscrito</p>
         {% endif %}
     </ul>
-    <a href="{% url 'home' %}">Volver</a>
+</div>
 {% endblock %}

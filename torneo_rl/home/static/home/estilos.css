@@ -187,16 +187,16 @@ table{
     margin: 80px 0;
 }
 th{
-    background-color: #13294b;
+    background-color: #353536;
     text-align: left;
     padding: 12px;
 }
 td{
     padding: 12px;
-    border-bottom: 1px solid #13294b;
+    border-bottom: 2px solid #ffffff;
 }
 tr:hover{
-    background-color: #102542;
+    background-color: #484849;
 }
 .contenedor{
     padding: 0 40px;
@@ -308,4 +308,32 @@ nav button:hover{
     padding: 5px;
     font-size: 18px;
     text-align: left;
+}
+.perfil {
+    width: 400px;
+    margin: 60px auto;
+    padding: 20px;
+    background-color: #2B2B2B;
+    color: white;
+    border-radius: 8px;
+}
+
+.perfil h2 {
+    text-align: center;
+}
+
+.perfil ul {
+    list-style: none;
+    padding: 0;
+}
+
+.perfil li {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #1a1a1a;
+    border-radius: 5px;
+}
+
+.perfil p {
+    margin: 0;
 }
