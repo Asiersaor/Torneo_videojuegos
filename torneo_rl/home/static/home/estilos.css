@@ -317,23 +317,86 @@ nav button:hover{
     color: white;
     border-radius: 8px;
 }
-
 .perfil h2 {
     text-align: center;
 }
-
 .perfil ul {
     list-style: none;
     padding: 0;
 }
-
 .perfil li {
     padding: 10px;
     margin-bottom: 10px;
     background-color: #1a1a1a;
     border-radius: 5px;
 }
-
 .perfil p {
     margin: 0;
+}
+.titulo-estadisticas{
+    color: white;
+    padding: 60px 0px 0px 0px;
+    text-align: center;
+}
+.BloqueNiveles {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0px 0px 20px;
+}
+.TarjetaNiveles{
+    background-color: #3B3B3B;
+    border-radius: 12px;
+    padding: 30px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    align-items: center;
+}
+.BloqueVictorias{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.TarjetaVictorias{
+    background-color: #3B3B3B;
+    border-radius: 12px;
+    padding: 30px;
+    width: 100%;
+    max-width: 1000px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    align-items: center;
+}
+.contenido-graficos{
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.enfrentamientos ul{
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    justify-content: center;
+}
+.enfrentamientos li{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.grafico{
+    background: #3B3B3B;
+    border-radius: 12px;
+    padding: 16px;
+    width: 100%;
+    max-width: 1000px;
+    height: 500px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }

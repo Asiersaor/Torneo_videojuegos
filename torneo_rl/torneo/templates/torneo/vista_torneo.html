@@ -53,7 +53,7 @@
                         <span>{{ rondas.participante_2.usuario.username|default:"Por definir" }}</span><span class="marcador">{{ rondas.victorias_participante_2 }}</span>
                     </div>
                     {% if rondas.ganador_enfrentamiento %}
-                        <div class="campeon">Campeón: {{ rondas.ganador_enfrentamiento }}</div>
+                        <div class="campeon">Campeón: {{ rondas.ganador_enfrentamiento.usuario.username }}</div>
                     {% endif %}
                 </a>
             {% endfor %}

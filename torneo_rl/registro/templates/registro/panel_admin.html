@@ -25,7 +25,7 @@
                 {% if usuario.inscripcion_set.first is None %}
                     <td>No inscrito</td>
                 {% else %}
-                    <td>{{ usuario.inscripcion_set.first }}</td>
+                    <td>{{ usuario.inscripcion_set.first.get_nivel_display }}</td>
                 {% endif %}
                 <td><a class="boton" href="{% url 'editar_usuario' usuario.id%}">Editar</a></td>
                 <td><form action="{% url 'eliminar_usuario' usuario.id %}" method="post">

@@ -2,6 +2,12 @@
 
 Aplicacion Web desarrollado en Django para la gestion de un torneo de un videojuego (El juego elegido es Rocket League).
 
+## Usos.
+
+- Para crear torneos es necesario crear un superuser. Una vez creado en panel de administrador de Django, hay que crear el objeto de torneo y llamarlo "Rocket League". En el inicio apareceran todos los torneos creados.
+- Una vez inscritos los 8 participantes del torneo, con el usuario administrador creado anteriormente, aparecera un boton en el "nav" llamado ""Generar Torneo", al darle clic se generara el bracket del torneo con su estructura.
+- Para poder generar los resultados, hay que meterse a cada enfrentamiento y aparecera un boton por participante de ese mismo encuentro, al darle un clic, se le suma a ese participante una victoria en ese encuentro.
+
 ## Fases de desarrollo.
 
 - Fase_01: Vista y modelo del formulario de registro.

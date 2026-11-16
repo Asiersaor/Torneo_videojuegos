@@ -10,15 +10,19 @@
 
 {% block content %}
 
+<h1 class="titulo-estadisticas">Niveles de los inscritos</h1>
+
 {{ nombres_victorias|json_script:"nombres-data" }}
 {{ victorias_totales|json_script:"victorias-data" }}
-
+<div class="BloqueNiveles">
+<div class="TarjetaNiveles">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <div style="width: 1000px; height: 600px;">
         <canvas id="graficaNiveles"></canvas>
     </div>
     <script>
     const ctx = document.getElementById('graficaNiveles');
+    Chart.defaults.color = '#e5e5e5';
     const data = {
         labels: ['Amateur', 'Medio', 'Experto'],
         datasets: [{
@@ -45,6 +49,13 @@
         };
     new Chart(ctx, config);
     </script>
+</div>
+</div>
+
+<h1 class="titulo-estadisticas">Victorias de los inscritos</h1>
+
+<div class="BloqueVictorias">
+<div class="TarjetaVictorias">
     <div style="width: 1000px; height: 600px;">
         <canvas id="graficaVictorias"></canvas>
     </div>
@@ -52,7 +63,7 @@
     const nombres = JSON.parse(document.getElementById("nombres-data").textContent);
     const victorias = JSON.parse(document.getElementById("victorias-data").textContent);
     const ctx2 = document.getElementById('graficaVictorias');
-
+    Chart.defaults.color = '#e5e5e5';
     new Chart(ctx2, {
     type: 'bar',
     data: {
@@ -72,4 +83,6 @@
      }
     });
     </script>
+</div>
+</div>
 {% endblock %}

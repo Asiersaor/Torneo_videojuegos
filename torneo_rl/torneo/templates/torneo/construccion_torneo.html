@@ -10,8 +10,10 @@
 {% endblock %}
 
 {% block content %}
-    {% if user.rol == "admin" %}
-    <form action="{% url 'encuentros_torneo_rl' enfrentamiento.id %}" method="post">
+    <div class="contenido-graficos">
+      <div class="enfrentamientos">
+      {% if user.rol == "admin" %}
+      <form action="{% url 'encuentros_torneo_rl' enfrentamiento.id %}" method="post">
         {% csrf_token %}
         <ul>
             <li>
@@ -21,23 +23,27 @@
                 <button name="ganador" value="2">{{ enfrentamiento.participante_2 }}</button><p>{{ enfrentamiento.victorias_participante_2 }}</p>
             </li>
         </ul>
-    </form>
-    {% else %}
-    <ul>
-        <li>
-            <p>{{ enfrentamiento.participante_1 }} {{ enfrentamiento.victorias_participante_1 }}</p>
-        </li>
-        <li>
-            <p>{{ enfrentamiento.participante_2 }} {{ enfrentamiento.victorias_participante_2 }}</p>
-        </li>
-    </ul>
-    {% endif %}
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <div style="width: 1000px; height: 600px;">
+      </form>
+      {% else %}
+        <ul>
+          <li>
+            <p>{{ enfrentamiento.participante_1.usuario.username }} - {{ enfrentamiento.victorias_participante_1 }}</p>
+          </li>
+          <li>
+            <p>{{ enfrentamiento.participante_2.usuario.username }} - {{ enfrentamiento.victorias_participante_2 }}</p>
+          </li>
+        </ul>
+      </div>
+      {% endif %}
+      <div class="grafico">
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <div style="width: 1000px; height: 600px;">
         <canvas id="grafico_enfrentamientos"></canvas>
-    </div>
-    <script>
+      </div>
+      <script>
     const ctx = document.getElementById('grafico_enfrentamientos');
+
+    Chart.defaults.color = '#e5e5e5';
 
   new Chart(ctx, {
     type: 'bar',
@@ -57,5 +63,7 @@
       }
     }
   });
-    </script>
+      </script>
+    </div>
+  </div>
 {% endblock %}
