@@ -21,6 +21,7 @@ Aplicacion Web desarrollado en Django para la gestion de un torneo de un videoju
 - Fase_09: Panel de Admin para gestionar inscripciones.
 - Fase_10: Implementacion de estadisticas en cada encuentro y en la url "/estadisticas/".
 - Fase_11: Fase de aplicacion de estilos y archivo Css.
+- Fase_12: Testing de las aplicaciones.
 
 ## Carpetas importantes:
 
