@@ -1,6 +1,8 @@
 from django.urls import path
 from .views import generar_torneo, encuentros, ver_torneo, estadisticas
 
+# Urls de la aplicacion de "estadisticas", "bracket del torneo", de cada "encuentro" y de "generacion del torneo".
+
 urlpatterns = [
     path("generador_torneo_rl/", generar_torneo, name= "generador_torneo_rl"),
     path("encuentros_torneo_rl/<int:id>/", encuentros, name= "encuentros_torneo_rl"),

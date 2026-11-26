@@ -1,12 +1,21 @@
 # Proyecto Final Torneo de Videojuego.
 
-Aplicacion Web desarrollado en Django para la gestion de un torneo de un videojuego (El juego elegido es Rocket League).
+Aplicacion Web desarrollada en Django para la gestion de un torneo de un videojuego (El juego elegido es Rocket League).
 
 ## Usos.
 
+- El proyecto esta creado en Python 3.14.4.
+- Para poder iniciar con el proyecto es necesario seguir los siguientes pasos:
+ 1. Un entorno virtual con el siguiente comando: python -m venv venv.
+ 2. Ejecutar el entorno virtual con el siguiente comando: venv\Scripts\activate (Windows), source venv/bin/activate (MacOs, Linux).
+ 3. Instalar las librerias correspondientes de Django: pip install django.
+ 4. Crear un superuser: python manage.py createsuperuser, y completar los campos de contraseña y nombre de usuario.
+ 5. Hacer una migracion para añadirlo a la base de datos: python manage.py migrate.
+- Para ejecutar el entorno de desarrollo hay que ejecutar el siguiente comando: python manage.py runserver
 - Para crear torneos es necesario crear un superuser. Una vez creado en panel de administrador de Django, hay que crear el objeto de torneo y llamarlo "Rocket League". En el inicio apareceran todos los torneos creados.
-- Una vez inscritos los 8 participantes del torneo, con el usuario administrador creado anteriormente, aparecera un boton en el "nav" llamado ""Generar Torneo", al darle clic se generara el bracket del torneo con su estructura.
+- Una vez inscritos los 8 participantes del torneo, con el usuario administrador creado anteriormente, aparecera un boton en el "nav" llamado "Generar Torneo", al darle clic se generara el bracket del torneo con su estructura.
 - Para poder generar los resultados, hay que meterse a cada enfrentamiento y aparecera un boton por participante de ese mismo encuentro, al darle un clic, se le suma a ese participante una victoria en ese encuentro.
+- Para poder iniciar los test es necesario usar una terminal en la carpeta del test con el comando: python manage.py test "app_ejemplo". Para ejecutar todos los test, es necesario estar en la carpeta del torneo y ejecutar el comando: python manage.py test.
 
 ## Fases de desarrollo.
 
@@ -36,7 +45,7 @@ Aplicacion Web desarrollado en Django para la gestion de un torneo de un videoju
 
 - Registro: Es la app que controla el registro de usuarios de la web.
 - Inscripcion: Sirve para el control de registro de los participantes del torneo.
-- Torneo: Es la app encargada de mostrar tanto los resultados de las fases del torneo.
+- Torneo: Es la app encargada de mostrar tanto los resultados de las fases del torneo como el bracket del torneo.
 - Home: Es la encargada de mostrarnos la pantalla de inicio.
 
 ## Urls.
@@ -49,5 +58,5 @@ Aplicacion Web desarrollado en Django para la gestion de un torneo de un videoju
 - "/vista_torneo_rl/": Se encarga de mostrar la estructura del torneo.
 - "/generador_torneo_rl/" Esta url es solo accesible para el admin. Contiene la logica para generar el llamado "Bracket".
 - "/encuentros_torneo_rl/x/": Otra url solo accesible para el admin y gestiona el marcador de los encuentros.
-- "/panel_admin/" Url accesible solo para el admin, que ayuda a la gestion de inscripciones.
-- "/estadisticas/" Url para consultar algunas estadisticas del torneo.
+- "/panel_admin/": Url accesible solo para el admin, que ayuda a la gestion de inscripciones.
+- "/estadisticas/": Url para consultar algunas estadisticas del torneo.

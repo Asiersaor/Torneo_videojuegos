@@ -2,9 +2,10 @@ from django.shortcuts import render, redirect
 from .forms import FormularioInscripcion
 from django.contrib.auth.decorators import login_required
 
-# Create your views here.
+# Vistas de la aplicacion "inscripcion".
+
 @login_required
-def inscripcion(request):
+def inscripcion(request): # Vista para mostrar la plantilla junto al formulario.
     if request.method == "POST":
         form = FormularioInscripcion(request.POST)
         if form.is_valid():

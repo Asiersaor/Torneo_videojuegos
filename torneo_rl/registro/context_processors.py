@@ -1,6 +1,8 @@
 from inscripcion.models import Inscripcion
 
-def inscripcion_context(request):
+# Archivo creado para usar variables sin necesidad de pasarlos por una vista.
+
+def inscripcion_context(request): # Metodo para guardar las inscripciones sin necesidad de vista.
     if request.user.is_authenticated:
         mi_inscripcion = Inscripcion.objects.filter(usuario=request.user).first()
     else:

@@ -1,6 +1,8 @@
 from django.urls import path
 from .views import registro, inicio_sesion, cierre_sesion, cuenta_perfil, panel_admin, editar_usuario, eliminar_usuario
 
+# Urls de la aplicacion de "registro", "inicio de sesion" y de "panel administrador".
+
 urlpatterns = [
     path("registro/", registro, name="registro"),
     path("login/", inicio_sesion, name="inicio_sesion"),

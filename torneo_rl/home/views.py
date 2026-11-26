@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from .models import Torneo
 
-# Create your views here.
-def listado_torneos(request):
-    torneos = Torneo.objects.all
+# Vistas de la aplicacion "home".
+
+def listado_torneos(request): # Vista listado torneos.
+    torneos = Torneo.objects.all()
     return render(request, "home/listado.html", {"torneos": torneos})
-def inicio(request):
+
+def inicio(request): # Vista para mostrar la pagina de inicio.
     return render(request, "home/inicio.html")

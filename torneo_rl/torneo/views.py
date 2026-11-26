@@ -4,9 +4,10 @@ from .models import Enfrentamiento, Partida
 from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
 
-# Create your views here.
+# Vistas de la aplicacion "generacion de torneo", "encuentros", "estadisticas" y "bracket del torneo".
+
 @login_required
-def generar_torneo(request):
+def generar_torneo(request): # Vista para la generacion del torneo junto con los enfrentamientos por nivel de forma equilibrada.
     enfrentamiento_cuartos = []
     if request.user.rol != "admin":
         return redirect("home")
@@ -35,7 +36,7 @@ def generar_torneo(request):
     return redirect("vista_torneo_rl")
 
 @login_required
-def encuentros(request, id):
+def encuentros(request, id): # Vista de cada encuentro clasificado por id.
     enfrentamiento = Enfrentamiento.objects.get(id=id)
     if request.method == "POST":
         if request.user.rol != "admin":
@@ -66,7 +67,8 @@ def encuentros(request, id):
             siguiente.save()
         return redirect("home")
     return render(request, "torneo/construccion_torneo.html", {"enfrentamiento":enfrentamiento})
-def ver_torneo(request):
+
+def ver_torneo(request): # Vista del torneo para llamar a la plantilla que renderiza el bracket del torneo.
     enfrentamientos_cuartos = Enfrentamiento.objects.filter(ronda="CUARTOS").order_by("id")
     enfrentamientos_semifinales = Enfrentamiento.objects.filter(ronda="SEMIFINALES").order_by("id")
     enfrentamientos_final = Enfrentamiento.objects.filter(ronda="FINAL").order_by("id")
@@ -75,7 +77,8 @@ def ver_torneo(request):
     else:
         mi_inscripcion = None
     return render(request, "torneo/vista_torneo.html", {"mi_inscripcion": mi_inscripcion, "enfrentamientos_cuartos": enfrentamientos_cuartos, "enfrentamientos_semifinales": enfrentamientos_semifinales, "enfrentamientos_final": enfrentamientos_final})
-def estadisticas(request):
+
+def estadisticas(request): # Vista de las estadisticas del torneo para mostrar graficos con informacion del torneo.
     inscripciones_amateur = Inscripcion.objects.filter(nivel="LOW").count()
     inscripciones_medio = Inscripcion.objects.filter(nivel="MID").count()
     inscripciones_experto = Inscripcion.objects.filter(nivel="PRO").count()

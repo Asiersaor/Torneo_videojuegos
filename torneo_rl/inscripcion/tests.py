@@ -6,13 +6,16 @@ from home.models import Torneo
 
 Usuario = get_user_model()
 
-# Create your tests here.
+# Clase para la creacion de tests y apartado de "inscripcion".
+
 class AppInscripcion(TestCase):
-    def setUp(self):
+
+    def setUp(self): # Metodo para agregar un usuario e iniciar sesion como ejemplo para los tests.
         self.usuario = Usuario.objects.create_user(username="angelote", password="caracol04")
         self.client.force_login(self.usuario)
         self.torneo = Torneo.objects.create(juego= "Rocket League")
-    def test_form_inscripcion_vacia(self):
+
+    def test_form_inscripcion_vacia(self): # Test para comprobar el comportamiento del formulario de inscripcion cuando se entrega vacio.
         inscripcion_antes = Inscripcion.objects.count()
         url = reverse("inscripcion")
         datos = {"nivel":"", "juego":""}
@@ -23,7 +26,8 @@ class AppInscripcion(TestCase):
         self.assertEqual(inscripcion_despues, inscripcion_antes)
         self.assertIn("nivel", error)
         self.assertIn("juego", error)
-    def test_form_inscripcion_correcta(self):
+
+    def test_form_inscripcion_correcta(self): # Test para comprobar el formulario de la inscripcion bien rellenado.
         inscripcion_antes = Inscripcion.objects.count()
         url = reverse("inscripcion")
         datos = {"nivel":"MID", "juego":self.torneo.pk}
@@ -31,7 +35,8 @@ class AppInscripcion(TestCase):
         inscripcion_despues = Inscripcion.objects.count()
         self.assertRedirects(peticion, reverse("torneo_rl"))
         self.assertEqual(inscripcion_despues, inscripcion_antes + 1)
-    def test_form_sin_inicio_sesion(self):
+
+    def test_form_sin_inicio_sesion(self): # Test para comprobar el comportamiento del formulario cuando no esta la sesion iniciada.
         self.client.logout()
         inscripcion_antes = Inscripcion.objects.count()
         url = reverse("inscripcion")
@@ -40,7 +45,8 @@ class AppInscripcion(TestCase):
         inscripcion_despues = Inscripcion.objects.count()
         self.assertEqual(peticion.status_code, 302)
         self.assertEqual(inscripcion_despues, inscripcion_antes)
-    def test_form_incompleto_un_campo(self):
+
+    def test_form_incompleto_un_campo(self): # Test para comprobar el comportaiento del formulario cuando hay un campo incompleto.
         inscripcion_antes = Inscripcion.objects.count()
         url = reverse("inscripcion")
         datos = {"nivel":"MID", "juego":""}
